@@ -1,4 +1,5 @@
-import { useState, useRef, useEffect } from "react";
+// src/homepage/components/MenuDropdown.tsx
+import React, { useState, useRef, useEffect } from "react";
 
 const navItems = [
   { label: "Home", href: "/" },
@@ -8,29 +9,34 @@ const navItems = [
 ];
 
 export default function MenuDropdown() {
-  const [open, setOpen] = useState(false);
+  const [isHovered, setHovered] = useState(false);
+  const [isClicked, setClicked] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
-  // Close when clicking outside
+  // close when clicking outside
   useEffect(() => {
     function handleClick(e: MouseEvent) {
       if (ref.current && !ref.current.contains(e.target as Node)) {
-        setOpen(false);
+        setClicked(false);
+        setHovered(false);
       }
     }
     document.addEventListener("mousedown", handleClick);
     return () => document.removeEventListener("mousedown", handleClick);
   }, []);
 
+  const open = isHovered || isClicked;
+
   return (
     <div
       ref={ref}
       style={{ position: "relative", display: "inline-block" }}
-      onMouseEnter={() => setOpen(true)}
-      onMouseLeave={() => setOpen(false)}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
     >
       {/* Button with hamburger icon */}
       <button
+        onClick={() => setClicked(c => !c)}
         style={{
           background: "transparent",
           border: "none",
