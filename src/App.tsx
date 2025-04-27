@@ -1,6 +1,13 @@
-import HomePage from "./homepage/HomePage";
-import "./index.css";
+// src/App.tsx
+import React from "react";
+import HomePage from "./homepage/HomePage"; // Correct path to HomePage
 
-export default function App() {
-  return <HomePage />;
-}
+const App: React.FC = () => {
+  return (
+    <div>
+      <HomePage />
+    </div>
+  );
+};
+
+export default App;

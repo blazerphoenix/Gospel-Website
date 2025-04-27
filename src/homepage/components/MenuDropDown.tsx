@@ -11,37 +11,50 @@ export default function MenuDropdown() {
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
-  // close when clicking outside
+  // Close when clicking outside
   useEffect(() => {
-    function onClick(e: MouseEvent) {
+    function handleClick(e: MouseEvent) {
       if (ref.current && !ref.current.contains(e.target as Node)) {
         setOpen(false);
       }
     }
-    document.addEventListener("mousedown", onClick);
-    return () => document.removeEventListener("mousedown", onClick);
+    document.addEventListener("mousedown", handleClick);
+    return () => document.removeEventListener("mousedown", handleClick);
   }, []);
 
   return (
     <div
       ref={ref}
-      style={{ position: "relative", display: "flex", alignItems: "center" }}
+      style={{ position: "relative", display: "inline-block" }}
+      onMouseEnter={() => setOpen(true)}
+      onMouseLeave={() => setOpen(false)}
     >
+      {/* Button with hamburger icon */}
       <button
-        onClick={() => setOpen(o => !o)}
         style={{
-          background: "none",
+          background: "transparent",
           border: "none",
           color: "#fff",
           fontSize: "1rem",
           fontFamily: "'Poppins', sans-serif",
           cursor: "pointer",
+          display: "flex",
+          alignItems: "center",
+          gap: "0.5rem",
           padding: "0.25rem 0.5rem",
         }}
       >
-        Menu
+        <div style={{ display: "flex", flexDirection: "column", gap: "3px" }}>
+          <div style={{ width: "20px", height: "2px", background: "#fff" }} />
+          <div style={{ width: "20px", height: "2px", background: "#fff" }} />
+          <div style={{ width: "20px", height: "2px", background: "#fff" }} />
+        </div>
+        <span style={{ textTransform: "uppercase", letterSpacing: "1px" }}>
+          Menu
+        </span>
       </button>
 
+      {/* Dropdown */}
       {open && (
         <div
           style={{
@@ -49,11 +62,12 @@ export default function MenuDropdown() {
             top: "100%",
             right: 0,
             marginTop: "0.5rem",
-            background: "#222",
+            background: "#111",
             borderRadius: "4px",
-            boxShadow: "0 4px 12px rgba(0,0,0,0.3)",
+            boxShadow: "0 4px 12px rgba(0,0,0,0.5)",
             overflow: "hidden",
             zIndex: 1001,
+            animation: "fadeIn 0.2s ease-in-out",
           }}
         >
           {navItems.map(item => (
@@ -66,21 +80,27 @@ export default function MenuDropdown() {
                 color: "#fff",
                 textDecoration: "none",
                 fontFamily: "'Poppins', sans-serif",
-                whiteSpace: "nowrap",
                 transition: "background 0.2s",
+                whiteSpace: "nowrap",
               }}
-              onMouseOver={e =>
-                ((e.currentTarget as HTMLAnchorElement).style.background = "#333")
-              }
-              onMouseOut={e =>
-                ((e.currentTarget as HTMLAnchorElement).style.background = "transparent")
-              }
+              onMouseEnter={e => (e.currentTarget.style.background = "#333")}
+              onMouseLeave={e => (e.currentTarget.style.background = "transparent")}
             >
               {item.label}
             </a>
           ))}
         </div>
       )}
+
+      {/* Fade-in keyframes */}
+      <style>
+        {`
+          @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-5px); }
+            to { opacity: 1; transform: translateY(0); }
+          }
+        `}
+      </style>
     </div>
   );
 }
