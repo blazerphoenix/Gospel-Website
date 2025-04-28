@@ -1,0 +1,108 @@
+/* Events.css */
+
+/* Fade-in for content */
+@keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+  
+  /* Floating orb if you want to re-use it */
+  @keyframes float {
+    0% { transform: translate(0,0); }
+    50% { transform: translate(10px,-20px); }
+    100% { transform: translate(0,0); }
+  }
+  
+  /* Section base styling */
+  .events-section {
+    position: relative;
+    width: 100%;
+    padding: 4rem 1rem;
+    background-color: #111;
+    color: #fff;
+    overflow: hidden;
+    text-align: center;
+    min-height: 70vh;
+  }
+  
+  /* Content wrapper */
+  .events-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    margin: 0 auto;
+    animation: fadeIn 1.2s ease-out both;
+  }
+  
+  /* Paragraph text */
+  .events-text {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #ccc;
+    margin-bottom: 2rem;
+  }
+  
+  /* Loading fallback */
+  .events-loading {
+    font-size: 1rem;
+    color: #777;
+  }
+  
+  /* Thumbnail container */
+  .events-thumbnail-container {
+    display: inline-block;
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+  }
+  
+  .events-thumbnail-container:hover {
+    transform: scale(1.03);
+    box-shadow: 0 8px 24px rgba(212,175,55,0.4);
+  }
+  
+  /* The thumbnail image itself */
+  .events-thumbnail {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  
+  /* Dark overlay with play icon on hover */
+  .events-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.4);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .events-thumbnail-container:hover .events-overlay {
+    opacity: 1;
+  }
+  
+  .events-play-icon {
+    font-size: 3rem;
+    color: #fff;
+  }
+  
+  /* Responsive: center thumbnail on mobile */
+  @media (max-width: 768px) {
+    .events-section {
+      padding: 3rem 1rem;
+    }
+    .events-text {
+      font-size: 1.1rem;
+    }
+    .events-thumbnail-container {
+      width: 90%;
+      max-width: 500px;
+    }
+  }
+  
