@@ -4,17 +4,32 @@ import MenuDropdown from "./MenuDropDown";
 
 export default function Navbar() {
   const [loaded, setLoaded] = useState(false);
+  const [isCompact, setIsCompact] = useState(false);
 
   useEffect(() => {
     setLoaded(true);
+
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+
+      if (currentScrollY > 100) {
+        setIsCompact(true);
+      } else {
+        setIsCompact(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
     <nav
       style={{
-        backgroundColor: "rgba(0, 0, 0, 0.85)",      // darker opaque navbar
+        backgroundColor: isCompact ? "rgba(0, 0, 0, 1)" : "rgba(0, 0, 0, 0.85)", 
         color: "#fff",
-        padding: "1rem 2rem",
+        padding: isCompact ? "0.5rem 2rem" : "1rem 2rem",
         position: "fixed",
         top: 0,
         left: 0,
@@ -24,7 +39,8 @@ export default function Navbar() {
         backdropFilter: "blur(8px)",
         WebkitBackdropFilter: "blur(8px)",
         transform: loaded ? "translateY(0)" : "translateY(-100%)",
-        transition: "transform 0.5s ease",
+        transition: "background-color 0.5s ease, padding 0.4s ease, transform 0.4s ease", 
+        // 🌟 Added smooth background-color transition here
       }}
     >
       <div
@@ -50,26 +66,27 @@ export default function Navbar() {
             src={logo}
             alt="Logo"
             style={{
-              height: "50px",
+              height: isCompact ? "40px" : "50px",
               borderRadius: "6px",
               cursor: "pointer",
-              transition: "transform 0.3s ease",
+              transition: "transform 0.3s ease, height 0.4s ease",
             }}
-            onMouseEnter={e => (e.currentTarget.style.transform = "scale(1.1)")}
-            onMouseLeave={e => (e.currentTarget.style.transform = "scale(1)")}
+            onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.1)")}
+            onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
           />
           <span
             style={{
-              fontSize: "1.8rem",
-              fontFamily: "'Poppins', sans-serif",
+              fontSize: isCompact ? "1.5rem" : "1.8rem",
+              fontFamily: "Special Gothic Expanded One, sans-serif",
               fontWeight: 600,
               textTransform: "uppercase",
               letterSpacing: "2px",
               textShadow: "1px 1px 2px rgba(0,0,0,0.7)",
               whiteSpace: "nowrap",
+              transition: "font-size 0.4s ease",
             }}
           >
-            Door of Deliverance Ministries
+            Door of Deliverance
           </span>
         </div>
 

@@ -1,20 +1,27 @@
 // src/homepage/components/Hero.tsx
 import React from "react";
-import backgroundVideo from "../../assets/videos/Hero.mp4";
+import backgroundVideo from "../../assets/videos/hero.mp4"; // make sure this matches your filename
 
 const Hero: React.FC = () => (
-  <div>
+  <section
+    style={{
+      position: "relative",
+      width: "100%",
+      height: "100vh",
+      overflow: "hidden",
+    }}
+  >
+    {/* Background video covers only this section */}
     <video
       autoPlay
       loop
       muted
       playsInline
       style={{
-        position: "fixed",       // <- FIXED, not absolute
-        top: 0,
-        left: 0,
-        width: "100vw",          // <- cover full viewport
-        height: "100vh",         // <- cover full viewport
+        position: "absolute",
+        inset: 0,            // shorthand for top:0; right:0; bottom:0; left:0
+        width: "100%",
+        height: "100%",
         objectFit: "cover",
         zIndex: -1,
       }}
@@ -22,7 +29,7 @@ const Hero: React.FC = () => (
       <source src={backgroundVideo} type="video/mp4" />
       Your browser does not support HTML5 video.
     </video>
-  </div>
+  </section>
 );
 
 export default Hero;
