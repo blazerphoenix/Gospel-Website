@@ -1,12 +1,79 @@
 /* About.css */
 @keyframes fadeIn {
-    0% { opacity: 0; transform: translateY(20px); }
-    100% { opacity: 1; transform: translateY(0); }
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes float {
+  0% { transform: translate(0px, 0px); }
+  50% { transform: translate(10px, -20px); }
+  100% { transform: translate(0px, 0px); }
+}
+
+@keyframes fadeInUp {
+  0% { opacity: 0; transform: translateY(40px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* ✨ Add hover zoom effect on images */
+.about-image {
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.about-image:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+.about-image {
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.about-image:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(255, 255, 255, 0.2);
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  #about img {
+    width: 90%;
   }
-  
-  @keyframes float {
-    0% { transform: translate(0px, 0px); }
-    50% { transform: translate(10px, -20px); }
-    100% { transform: translate(0px, 0px); }
+
+  #about div[style*="display: flex"] {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
   }
-  
+}
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes float {
+  0% { transform: translate(0px, 0px); }
+  50% { transform: translate(10px, -20px); }
+  100% { transform: translate(0px, 0px); }
+}
+
+/* Image hover effect */
+.about-image:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 32px rgba(212, 175, 55, 0.4); /* Soft golden glow */
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  #about div[style*="display: flex"] {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .about-image {
+    width: 90%;
+    height: auto;
+  }
+}
