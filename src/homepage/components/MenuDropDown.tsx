@@ -1,10 +1,9 @@
-// src/homepage/components/MenuDropdown.tsx
 import React, { useState, useRef, useEffect } from "react";
 
 const navItems = [
-  { label: "Home",    href: "#"       },  // scrolls to top
-  { label: "About",   href: "#about"  },  // smooth-scroll to #about
-  { label: "Events",  href: "/events" },
+  { label: "Home",    href: "#"       },
+  { label: "About",   href: "#about"  },
+  { label: "Events",  href: "#events" },
   { label: "Contact", href: "/contact"},
 ];
 
@@ -13,7 +12,6 @@ export default function MenuDropdown() {
   const [isClicked, setClicked] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
-  // Close on outside click
   useEffect(() => {
     function handleClickOutside(e: MouseEvent) {
       if (ref.current && !ref.current.contains(e.target as Node)) {
@@ -27,27 +25,28 @@ export default function MenuDropdown() {
 
   const open = isHovered || isClicked;
 
-  // Handle both smooth-scroll for in-page anchors and normal navigation
   const handleClick = (e: React.MouseEvent, href: string) => {
-    // Always prevent default to control behavior
     e.preventDefault();
 
     if (href.startsWith("#")) {
-      // In-page anchor: smooth scroll
       const targetId = href.slice(1);
-      const el = document.getElementById(targetId);
-      if (el) {
-        el.scrollIntoView({ behavior: "smooth", block: "start" });
-      } else if (targetId === "") {
-        // href "#" => scroll to top
-        window.scrollTo({ top: 0, behavior: "smooth" });
-      }
+
+      const tryScroll = () => {
+        const el = document.getElementById(targetId);
+        if (el) {
+          el.scrollIntoView({ behavior: "smooth", block: "start" });
+        } else if (targetId === "") {
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        } else {
+          setTimeout(tryScroll, 100); // Retry until the element renders
+        }
+      };
+
+      tryScroll();
     } else {
-      // External page: navigate
       window.location.href = href;
     }
 
-    // Close dropdown
     setClicked(false);
     setHovered(false);
   };
@@ -59,7 +58,6 @@ export default function MenuDropdown() {
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
-      {/* Menu Button */}
       <button
         onClick={() => setClicked(c => !c)}
         style={{
@@ -85,7 +83,6 @@ export default function MenuDropdown() {
         </span>
       </button>
 
-      {/* Dropdown Panel */}
       {open && (
         <div
           style={{
@@ -124,7 +121,6 @@ export default function MenuDropdown() {
         </div>
       )}
 
-      {/* Fade-in keyframes */}
       <style>
         {`
           @keyframes fadeIn {
