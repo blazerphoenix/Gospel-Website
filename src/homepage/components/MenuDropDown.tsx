@@ -1,10 +1,12 @@
 import React, { useState, useRef, useEffect } from "react";
 
 const navItems = [
-  { label: "Home",    href: "#"       },
-  { label: "About",   href: "#about"  },
-  { label: "Events",  href: "#events" },
-  { label: "Contact", href: "/contact"},
+  { label: "Home", href: "#" },
+  { label: "About", href: "#about" },
+  { label: "Events", href: "#events" },
+  { label: "Music", href: "/music" },
+  { label: "Donate", href: "#home-donate" }, // Added Donate
+  { label: "Contact", href: "/contact" },
 ];
 
 export default function MenuDropdown() {
@@ -112,8 +114,12 @@ export default function MenuDropdown() {
                 transition: "background 0.2s",
                 whiteSpace: "nowrap",
               }}
-              onMouseEnter={e => (e.currentTarget.style.background = "#333")}
-              onMouseLeave={e => (e.currentTarget.style.background = "transparent")}
+              onMouseEnter={e =>
+                (e.currentTarget.style.background = "#333")
+              }
+              onMouseLeave={e =>
+                (e.currentTarget.style.background = "transparent")
+              }
             >
               {item.label}
             </a>

@@ -1,15 +1,25 @@
 import React from "react";
-import LatestYouTubeVideo from "./LatestYouTubeVideo"; // import here
+import LatestYouTubeVideo from "./LatestYouTubeVideo";
+import img1 from "../../assets/images/preach.png"; // Your fabric/canvas texture image
 
 const Events: React.FC = () => {
   return (
-    <section id="events" style={styles.section}>
+    <section
+      id="events"
+      style={{
+        ...styles.section,
+        backgroundImage: `url(${img1})`,
+        backgroundSize: "cover",
+        backgroundRepeat: "repeat",
+        backgroundPosition: "center",
+      }}
+    >
       <div style={styles.overlay} />
       <div style={{ ...styles.orb, ...styles.orb1 }} />
       <div style={{ ...styles.orb, ...styles.orb2 }} />
       <div style={styles.content} className="fade-in-up">
         <h1 style={styles.title}>Latest Events</h1>
-        <div style={styles.divider} />
+        {/* <div style={styles.divider} /> */}
         <p style={styles.text}>
           Check out our latest video where we dive into powerful messages of
           faith and encouragement. Stay connected and be uplifted with inspiring
@@ -57,37 +67,38 @@ const styles: { [key: string]: React.CSSProperties } = {
     alignItems: "center",
     justifyContent: "center",
     textAlign: "center",
-    backgroundColor: "#111",
     overflow: "hidden",
     padding: "6rem 1rem",
+    backgroundAttachment: "fixed",
+    color: "#fff",
   },
   overlay: {
     position: "absolute",
     inset: 0,
-    background: "linear-gradient(to bottom, rgba(0,0,0,0.85), rgba(0,0,0,0.95))",
+    background: "linear-gradient(to bottom, rgba(41, 42, 42, 0.85), rgba(0,0,0,0.95))",
     zIndex: 0,
   },
-  orb: {
-    position: "absolute",
-    borderRadius: "50%",
-    background: "radial-gradient(circle at center, rgba(100,100,255,0.2), transparent)",
-    filter: "blur(120px)",
-    animation: "float 10s ease-in-out infinite",
-    zIndex: 1,
-  },
-  orb1: {
-    width: 500,
-    height: 500,
-    top: "-150px",
-    left: "-200px",
-  },
-  orb2: {
-    width: 400,
-    height: 400,
-    bottom: "-100px",
-    right: "-150px",
-    animationDelay: "2s",
-  },
+  // orb: {
+  //   position: "absolute",
+  //   borderRadius: "50%",
+  //   background: "radial-gradient(circle at center, rgba(254, 254, 254, 0.2), transparent)",
+  //   filter: "blur(120px)",
+  //   animation: "float 10s ease-in-out infinite",
+  //   zIndex: 1,
+  // },
+  // orb1: {
+  //   width: 500,
+  //   height: 500,
+  //   top: "-150px",
+  //   left: "-200px",
+  // },
+  // orb2: {
+  //   width: 400,
+  //   height: 400,
+  //   bottom: "-100px",
+  //   right: "-150px",
+  //   animationDelay: "2s",
+  // },
   content: {
     position: "relative",
     zIndex: 2,
@@ -95,8 +106,8 @@ const styles: { [key: string]: React.CSSProperties } = {
     padding: "1rem",
   },
   title: {
-    fontFamily: "'Cinzel', serif",
-    fontSize: "4rem",
+    fontFamily: "'Special Gothic Expanded One', sans-serif",
+    fontSize: "3rem",
     lineHeight: 1.1,
     letterSpacing: "0.1em",
     color: "#fff",

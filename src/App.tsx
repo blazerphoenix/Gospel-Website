@@ -1,12 +1,18 @@
-// src/App.tsx
 import React from "react";
-import HomePage from "./homepage/HomePage"; // Correct path to HomePage
+import { Routes, Route } from "react-router-dom";
+import HomePage from "./homepage/HomePage";
+import DonatePage from "./donate/Donate";
+import ScrollToHash from "./ScrollToHash";
 
 const App: React.FC = () => {
   return (
-    <div>
-      <HomePage />
-    </div>
+    <>
+      <ScrollToHash />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/donate" element={<DonatePage />} />
+      </Routes>
+    </>
   );
 };
 
