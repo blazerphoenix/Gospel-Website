@@ -6,11 +6,11 @@ const navItems = [
   { label: "Home", href: "/" },
   { label: "About", href: "/#about" },
   { label: "Events", href: "/#events" },
-  { label: "Music", href: "/music" },
+  { label: "Music", href: "/#music" },
   {
     label: "Donate",
     href: "/#home-donate",
-    dropdown: [{ label: "Give Online", href: "/donate" }],
+    dropdown: [{ label: "Online", href: "/donate" }],
   },
   { label: "Contact", href: "/contact" },
 ];
