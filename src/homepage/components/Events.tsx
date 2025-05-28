@@ -106,7 +106,7 @@ const styles: { [key: string]: React.CSSProperties } = {
     padding: "1rem",
   },
   title: {
-    fontFamily: "'Special Gothic Expanded One', sans-serif",
+    fontFamily: '"Playfair Display", serif',
     fontSize: "3rem",
     lineHeight: 1.1,
     letterSpacing: "0.1em",
@@ -124,7 +124,7 @@ const styles: { [key: string]: React.CSSProperties } = {
   text: {
     fontSize: "1.25rem",
     lineHeight: 1.7,
-    color: "#ccc",
+    color: "white",
     marginBottom: "3rem",
   },
 };

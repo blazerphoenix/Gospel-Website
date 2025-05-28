@@ -12,7 +12,7 @@ const navItems = [
     href: "/#home-donate",
     dropdown: [{ label: "Online", href: "/donate" }],
   },
-  { label: "Contact", href: "/contact" },
+  { label: "Contact", href: "/#contact" },
 ];
 
 export default function Navbar() {
@@ -109,7 +109,7 @@ export default function Navbar() {
               transition: "transform 0.3s ease, height 0.4s ease",
             }}
           />
-          <span
+          {/* <span
             style={{
               fontSize: isCompact ? "1.5rem" : "1.8rem",
               fontFamily: "Special Gothic Expanded One, sans-serif",
@@ -120,7 +120,7 @@ export default function Navbar() {
             }}
           >
             Door of Deliverance
-          </span>
+          </span> */}
         </div>
 
         {/* Hamburger */}

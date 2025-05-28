@@ -9,7 +9,7 @@
   .donate-section h2 {
     font-size: 2rem;
     margin-bottom: 1rem;
-    font-family: 'Special Gothic Expanded One', sans-serif;
+    font-family: "Playfair Display", serif;
   }
   
   .donate-section p {
@@ -82,7 +82,7 @@
 }
 
 .home-donate-title {
-  font-family: 'Special Gothic Expanded One', sans-serif;
+  font-family: "Playfair Display", serif;
   font-size: 3rem;
   letter-spacing: 0.1em;
   margin-bottom: 1rem;

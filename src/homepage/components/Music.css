@@ -48,9 +48,9 @@
 }
 
 .music-title {
-  font-size: 2.5rem;
+  font-size: 3rem;
   font-weight: bold;
-  font-family: 'Special Gothic Expanded One', sans-serif;
+  font-family: "Playfair Display", serif;
 }
 
 .music-divider {
@@ -62,10 +62,10 @@
 }
 
 .music-description {
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   margin-bottom: 2rem;
   font-family: "Poppins", sans-serif;
-  line-height: 1.6;
+  line-height: 1.7;
   color: #ccc;
 }
 
@@ -73,7 +73,7 @@
   background-color: #ffffff;
   color: #000;
   padding: 0.75rem 2rem;
-  font-size: 1.2rem;
+  font-size: 1.25rem;
   font-weight: bold;
   border-radius: 999px;
   border: none;
@@ -86,7 +86,7 @@
 }
 
 .music-button:hover {
-  background-color: #fff;
+  background-color: #d4af37;
   color: #000;
   box-shadow: 0 6px 20px rgba(255, 255, 255, 0.5);
   transform: scale(2.5); /* Makes button visibly bigger */

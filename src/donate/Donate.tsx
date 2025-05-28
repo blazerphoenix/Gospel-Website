@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Navbar from "../homepage/components/Navbar"; // ✅ Import the Navbar
-import qrCode from "../assets/images/fam.jpeg"; // Replace with your QR code image
+import qrCode from "../assets/images/qrc.png"; // Replace with your QR code image
 import gpayIcon from "../assets/images/gpay.png";
 import paytmIcon from "../assets/images/paytm.jpeg";
 import phonepeIcon from "../assets/images/phonepe.png";

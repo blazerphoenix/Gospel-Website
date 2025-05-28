@@ -5,7 +5,7 @@ import About from "./components/About";
 import Events from "./components/Events";
 import Music from "./components/Music";
 import HomeDonate from "./components/HomeDonate";
-import Newsletter from "./components/Newsletter";
+// import Newsletter from "./components/Newsletter";
 import ContactFooter from "./components/ContactFooter";
 
 const HomePage: React.FC = () => (
@@ -16,7 +16,7 @@ const HomePage: React.FC = () => (
     <Events />
     <Music />
     <HomeDonate />
-    <Newsletter />
+    {/* <Newsletter /> */}
     <ContactFooter />
   </>
 );

@@ -1,7 +1,7 @@
 // src/homepage/components/Hero.tsx
 import React from "react";
 import backgroundVideo from "../../assets/videos/hero.mp4";
-import "./hero.css"; // Import the CSS file
+import "./hero.css";
 
 const Hero: React.FC = () => (
   <section className="hero">
@@ -13,7 +13,8 @@ const Hero: React.FC = () => (
     <div className="hero-overlay" />
 
     <div className="hero-text">
-      Welcome to <br /> Door of Deliverance Ministries
+      <span className="hero-cursive">Welcome To</span>
+      <span className="hero-sans">DOOR OF DELIVERANCE MINISTRIES</span>
     </div>
   </section>
 );

@@ -47,7 +47,7 @@ const About: React.FC = () => {
   };
 
   const titleStyle: React.CSSProperties = {
-    fontFamily: "'Special Gothic Expanded One', sans-serif",
+    fontFamily: '"Playfair Display", serif',
     fontSize: "3rem",
     lineHeight: 1.1,
     letterSpacing: "0.1em",
@@ -110,7 +110,7 @@ const About: React.FC = () => {
       <div style={contentStyle}>
         <h1 style={titleStyle}>About Us</h1>
         {/* <div style={dividerStyle} /> */}
-        <p style={textStyle}>
+        <p style={textStyle}><br></br>
           Door of Deliverance Ministries, is a Christ-centered organization committed to spreading the message of love, hope, and transformation. Located in the heart of Mudichur, Chennai, we are dedicated to empowering individuals through spiritual growth, compassionate outreach, and impactful welfare programs. Our mission is to uplift communities, with a special focus on women, by offering practical support, guidance, and a safe space for personal healing and development. Through regular prayer meetings, worship nights, and community events, we aim to nurture faith and inspire a life of purpose and service. Join us as we walk together on a journey of faith, restoration, and divine purpose.
         </p>
 
